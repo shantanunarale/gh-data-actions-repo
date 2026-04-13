@@ -6,6 +6,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      dummy: ${{ steps.dumout.outputs.name }}
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -15,6 +17,9 @@ jobs:
         run: npm run lint
       - name: Test code
         run: npm run test
+      - name: Dummpy output
+        id: dumout
+        run: echo 'name=dummy' >> $GITHUB_OUTPUT
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -49,5 +54,7 @@ jobs:
         run: ls
       - name: Output filename
         run: echo "${{ needs.build.outputs.script-file }}"
+      - name: Output dummy
+        run: echo "${{ needs.test.outputs.name }}"
       - name: Deploy
         run: echo "Deploying..."
