@@ -55,6 +55,6 @@ jobs:
       - name: Output filename
         run: echo "${{ needs.build.outputs.script-file }}"
       - name: Output dummy
-        run: echo "${{ toJSON(github.job) }}"
+        run: echo "${{ toJSON(github) }}"
       - name: Deploy
         run: echo "Deploying..."
