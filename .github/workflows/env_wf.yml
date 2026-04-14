@@ -9,10 +9,10 @@ on:
         options:
           - dev
           - prod
-environment: env_sel
 
 jobs:
   secret_job:
+    environment: ${{ inputs.env_sel }}
     runs-on: ubuntu-latest
 
     steps:
