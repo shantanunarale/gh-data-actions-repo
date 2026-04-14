@@ -13,6 +13,14 @@ env:
 jobs:
   test_job:
     runs-on: ubuntu-latest
+    outputs:
+      person: ${{ steps.disp.outpus.individual }}
     steps:
-      - name: Step 1
-        run: echo "Hello $person_name"
+      - name: Greeting to Person
+        id: disp
+        run: echo "Hello individual=$person_name" >> $GITHUB_OUTPUT
+
+  test_job2:
+    needs: test_job
+    runs-on: ubuntu-latest
+    run: echo "${{ needs.test_job.outputs.person }}"
