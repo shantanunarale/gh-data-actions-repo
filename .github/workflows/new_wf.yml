@@ -18,7 +18,7 @@ jobs:
       addr: ${{ steps.disp.outputs.address }}        
       phn: ${{ steps.disp.outputs.phone }}
     env:
-      add = 'test add'      
+      add: 'test add'
     steps:
       - name: Greeting to Person
         id: disp
