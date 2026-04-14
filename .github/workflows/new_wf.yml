@@ -15,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
-        run: echo 'Hello $person_name'
+        run: echo "Hello $person_name"
