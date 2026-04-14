@@ -1,0 +1,23 @@
+name: Env Selector WF
+on:
+  workflow_dispatch:
+    inputs:
+      env_sel:
+        description: Select the Environment
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+environment: env_sel
+
+jobs:
+  secret_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print everything
+        run: echo ${{ secrets.SECRET }}
+        run: echo ${{ vars.TEST_VAR }}
+        
+
