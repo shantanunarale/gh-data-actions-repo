@@ -1,0 +1,18 @@
+name: New WF
+on:
+  workflow_dispatch:
+    inputs:
+      your_name:
+        description: Enter your name
+        required: true
+        type: string
+
+env:
+  person_name: ${{ inputs.your_name }}
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        run: echo 'Hello $person_name'
