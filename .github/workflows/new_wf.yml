@@ -8,7 +8,7 @@ on:
         type: string
 
 env:
-  person_name: Akshara
+  person_name: ${{ inputs.your_name }}
 
 jobs:
   test_job:
