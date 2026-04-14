@@ -15,10 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       person: ${{ steps.disp.outputs.individual }}
+      addr: ${{ steps.disp.outputs.address }}        
+      phn: ${{ steps.disp.outputs.phone }}
+    env:
+      add = 'test add'      
     steps:
       - name: Greeting to Person
         id: disp
-        run: echo "individual=$person_name" >> $GITHUB_OUTPUT
+        env:
+          phone: 12345678
+        run: |
+          {
+            echo "individual=$person_name"
+            echo "address=$add"
+            echo "phone=$phone"
+          } >> $GITHUB_OUTPUT
 
   test_job2:
     needs: test_job
