@@ -38,7 +38,7 @@ jobs:
       - name: Print
         run: echo "${{ needs.test_job.outputs.person }}, ${{ needs.test_job.outputs.addr }}, ${{ needs.test_job.outputs.phn }}"
       - name: Get Repo Var
-        run: "echo $TEST_VAR" >> testfile.txt
+        run: echo $TEST_VAR >> testfile.txt
       - name: upload test var
         uses: actions/upload-artifact@v7
         with:
