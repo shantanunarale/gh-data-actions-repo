@@ -36,4 +36,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print
-        run: echo "${{ needs.test_job.outputs.person }}"
+        run: echo "${{ needs.test_job.outputs.person }}, ${{ needs.test_job.outputs.addr }}, ${{ needs.test_job.outputs.phn }}"
