@@ -17,7 +17,8 @@ jobs:
 
     steps:
       - name: print everything
-        run: echo ${{ secrets.SECRET }}
-        run: echo ${{ vars.TEST_VAR }}
+        run: |
+          echo ${{ secrets.SECRET }}
+          echo ${{ vars.TEST_VAR }}
         
 
